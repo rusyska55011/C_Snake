@@ -39,7 +39,7 @@ void show_map(list* map) {
 
 	for (unsigned y = 0; y < map_size_y; y++) {
 		for (unsigned x = 0; x < map_size_x; x++) {
-			int map_element = GET_MAP_INDEX(map, y, x);
+			int map_element = get_map_pixel(map, y, x);
 			if (!map_element)
 				printf("0 ");
 			else
