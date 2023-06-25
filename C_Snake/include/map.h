@@ -1,5 +1,6 @@
 #pragma once
 #include <stdbool.h>
+#include "../my_library/mylist.h"
 
 typedef struct map {
 	const unsigned sizeY;
@@ -7,6 +8,10 @@ typedef struct map {
 	const _Bool** area;
 } map;
 
-bool** get_new_area_map(const unsigned sizeY, const unsigned sizeX);
+list* create_new_map(const unsigned size_y, const unsigned size_x);
 
-map create_map(const unsigned sizeY, const unsigned sizeX);
+unsigned get_map_size_y(list* map);
+
+unsigned get_map_size_x(list* map);
+
+void show_map(list* map);

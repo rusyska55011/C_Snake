@@ -4,21 +4,44 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool** get_new_area_map(const unsigned sizeY, const unsigned sizeX) {
+#include "../my_library/mylist.h"
 
-	bool** new_area = malloc(sizeof(bool) * sizeY);
+#define GET_MAP_INDEX(map, y, x) ( get_node_data(get_node_data(map, y), x) )
 
-	for (int y = 0; y < sizeY; y++) {
-		new_area[y] = malloc(sizeof(bool) * sizeX);
-		for (int x = 0; x < sizeX; x++) {
-			new_area[y][x] = false;
+list* create_new_map(const unsigned size_y, const unsigned size_x) {
+	list* map = new_list();
+
+	for (unsigned y = 0; y < size_y; y++) {
+		append_node(map, new_list());
+		for (unsigned x = 0; x < size_x; x++) {
+			append_node(get_node_data(map, y), 0);
 		}
 	}
-
-	return new_area;
+	return map;
 }
 
-map create_map(const unsigned sizeY, const unsigned sizeX) {
-	map new_map = { sizeY, sizeX, get_new_area_map(sizeY, sizeX) };
-	return new_map;
+unsigned get_map_size_y(list* map) {
+	return map->count;
+}
+
+unsigned get_map_size_x(list* map) {
+	list* first_map_value = get_node_data(map, 0); // Поскольку функция возвращает *void, компилятор ругается что это не може быть структура. Через присваивание (list*) тоже.
+	return first_map_value->count;
+}
+
+void show_map(list* map) {
+	const unsigned map_size_y = get_map_size_y(map);
+	const unsigned map_size_x = get_map_size_x(map);
+
+	for (unsigned y = 0; y < map_size_y; y++) {
+		for (unsigned x = 0; x < map_size_x; x++) {
+			int map_element = GET_MAP_INDEX(map, y, x);
+			if (!map_element)
+				printf("0 ");
+			else
+				printf("1 ");
+		}
+		printf("\n");
+	}
+
 }
