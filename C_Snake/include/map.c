@@ -20,6 +20,10 @@ list* create_new_map(const unsigned size_y, const unsigned size_x) {
 	return map;
 }
 
+int get_map_pixel(const list* map, const y, const x) {
+	return GET_MAP_INDEX(map, y, x);
+}
+
 unsigned get_map_size_y(list* map) {
 	return map->count;
 }
