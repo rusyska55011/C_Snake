@@ -10,12 +10,11 @@
 
 list* create_new_map(const unsigned size_y, const unsigned size_x) {
 	list* map = new_list();
-	unsigned char fill_pixel_symbol = MAP_DEFAULT_SYMBOL;
 
 	for (unsigned y = 0; y < size_y; y++) {
 		append_node(map, new_list());
 		for (unsigned x = 0; x < size_x; x++) {
-			append_node(get_node_data(map, y), fill_pixel_symbol);
+			append_node(get_node_data(map, y), (unsigned char)MAP_DEFAULT_SYMBOL);
 		}
 	}
 	return map;
