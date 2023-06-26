@@ -1,4 +1,5 @@
 #include "fruit.h"
+#include <stdlib.h>
 
 fruit* create_fruit(const position_y, const position_x, const unsigned char fruit_symbol) {
 	fruit* new_fruit = (fruit*)malloc(sizeof(fruit));
