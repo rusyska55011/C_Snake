@@ -10,17 +10,18 @@
 
 list* create_new_map(const unsigned size_y, const unsigned size_x) {
 	list* map = new_list();
+	unsigned char fill_pixel_symbol = ' ';
 
 	for (unsigned y = 0; y < size_y; y++) {
 		append_node(map, new_list());
 		for (unsigned x = 0; x < size_x; x++) {
-			append_node(get_node_data(map, y), 0);
+			append_node(get_node_data(map, y), fill_pixel_symbol);
 		}
 	}
 	return map;
 }
 
-int get_map_pixel(const list* map, const y, const x) {
+unsigned char get_map_pixel(const list* map, const y, const x) {
 	return GET_MAP_INDEX(map, y, x);
 }
 
@@ -39,11 +40,7 @@ void show_map(list* map) {
 
 	for (unsigned y = 0; y < map_size_y; y++) {
 		for (unsigned x = 0; x < map_size_x; x++) {
-			int map_element = get_map_pixel(map, y, x);
-			if (!map_element)
-				printf("0 ");
-			else
-				printf("1 ");
+			printf(" %c", get_map_pixel(map, y, x));
 		}
 		printf("\n");
 	}

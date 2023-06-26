@@ -10,7 +10,7 @@ typedef struct map {
 
 list* create_new_map(const unsigned size_y, const unsigned size_x);
 
-get_map_pixel(list* map, const y, const x);
+unsigned char get_map_pixel(list* map, const y, const x);
 
 unsigned get_map_size_y(list* map);
 
