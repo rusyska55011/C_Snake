@@ -44,3 +44,7 @@ void show_map(list* map) {
 	}
 
 }
+
+void change_map_pixel(const list* map, const y, const x, const unsigned char new_symbol) {
+	rewrite_node_data(get_node_data(map, y), x, new_symbol);
+}
