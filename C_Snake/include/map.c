@@ -29,8 +29,7 @@ unsigned get_map_size_y(list* map) {
 }
 
 unsigned get_map_size_x(list* map) {
-	list* first_map_value = get_node_data(map, 0); // Поскольку функция возвращает *void, компилятор ругается что это не може быть структура. Через присваивание (list*) тоже.
-	return first_map_value->count;
+	return ((list*)get_node_data(map, 0))->count;
 }
 
 void show_map(list* map) {
