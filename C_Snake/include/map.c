@@ -53,3 +53,11 @@ void change_map_pixel(const list* map, const y, const x, const unsigned char new
 void set_default_map_pixel(const list* map, const y, const x) {
 	change_map_pixel(map, y, x, MAP_DEFAULT_SYMBOL);
 }
+
+void cls_map(const list* map) {
+	for (unsigned y = 0; y < get_map_size_y(map); y++) {
+		for (unsigned x = 0; x < get_map_size_x(map); x++) {
+			change_map_pixel(map, y, x, MAP_DEFAULT_SYMBOL);
+		}
+	}
+}
