@@ -6,8 +6,6 @@
 
 #include "../my_library/mylist.h"
 
-#define GET_MAP_INDEX(map, y, x) ( get_node_data(get_node_data(map, y), x) )
-
 list* create_new_map(const unsigned size_y, const unsigned size_x) {
 	list* map = new_list();
 	unsigned char fill_pixel_symbol = ' ';
@@ -22,7 +20,7 @@ list* create_new_map(const unsigned size_y, const unsigned size_x) {
 }
 
 unsigned char get_map_pixel(const list* map, const y, const x) {
-	return GET_MAP_INDEX(map, y, x);
+	return get_node_data(get_node_data(map, y), x);
 }
 
 unsigned get_map_size_y(list* map) {
