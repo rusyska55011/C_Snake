@@ -6,9 +6,11 @@
 
 #include "../my_library/mylist.h"
 
+#define MAP_DEFAULT_SYMBOL '8'
+
 list* create_new_map(const unsigned size_y, const unsigned size_x) {
 	list* map = new_list();
-	unsigned char fill_pixel_symbol = ' ';
+	unsigned char fill_pixel_symbol = MAP_DEFAULT_SYMBOL;
 
 	for (unsigned y = 0; y < size_y; y++) {
 		append_node(map, new_list());
@@ -47,4 +49,8 @@ void show_map(list* map) {
 
 void change_map_pixel(const list* map, const y, const x, const unsigned char new_symbol) {
 	rewrite_node_data(get_node_data(map, y), x, new_symbol);
+}
+
+void set_default_map_pixel(const list* map, const y, const x) {
+	change_map_pixel(map, y, x, MAP_DEFAULT_SYMBOL);
 }

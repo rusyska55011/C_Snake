@@ -19,3 +19,5 @@ unsigned get_map_size_x(list* map);
 void show_map(list* map);
 
 void change_map_pixel(const list* map, const y, const x, const unsigned char new_symbol);
+
+void set_default_map_pixel(const list* map, const y, const x);
