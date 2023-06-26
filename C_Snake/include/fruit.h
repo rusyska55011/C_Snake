@@ -12,3 +12,5 @@ typedef struct mega_fruit {
 } mega_fruit;
 
 fruit* create_fruit(const position_y, const position_x, const unsigned char fruit_symbol);
+
+mega_fruit* create_mega_fruit(const position_y, const position_x, const unsigned char megas_fruit_symbol, unsigned destroy_time);
