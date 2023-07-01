@@ -24,17 +24,17 @@ unsigned char get_map_pixel(const list* map, const y, const x) {
 	return get_node_data(get_node_data(map, y), x);
 }
 
-unsigned get_map_size_y(list* map) {
-	return map->count;
+unsigned* get_map_size_y(list* map) {
+	return &map->count;
 }
 
-unsigned get_map_size_x(list* map) {
-	return ((list*)get_node_data(map, 0))->count;
+unsigned* get_map_size_x(list* map) {
+	return &((list*)get_node_data(map, 0))->count;
 }
 
 void show_map(list* map) {
-	const unsigned map_size_y = get_map_size_y(map);
-	const unsigned map_size_x = get_map_size_x(map);
+	const unsigned map_size_y = *get_map_size_y(map);
+	const unsigned map_size_x = *get_map_size_x(map);
 
 	for (unsigned y = 0; y < map_size_y; y++) {
 		for (unsigned x = 0; x < map_size_x; x++) {
@@ -54,8 +54,8 @@ void set_default_map_pixel(const list* map, const y, const x) {
 }
 
 void cls_map(const list* map) {
-	for (unsigned y = 0; y < get_map_size_y(map); y++) {
-		for (unsigned x = 0; x < get_map_size_x(map); x++) {
+	for (unsigned y = 0; y < *get_map_size_y(map); y++) {
+		for (unsigned x = 0; x < *get_map_size_x(map); x++) {
 			change_map_pixel(map, y, x, MAP_DEFAULT_SYMBOL);
 		}
 	}
