@@ -75,12 +75,19 @@ void append_node(list* this_list, const void* new_data) {
 }
 
 void delete_node(list* this_list, const signed index) {
+	if (!this_list->count)
+		return;
+
 	list_node* deleted_node = get_node(this_list, index);
 
 	list_node* next_node = deleted_node->next;
 	list_node* prev_node = deleted_node->prev;
 
-	if (this_list->first == deleted_node) {
+	if (this_list->count == 1) {
+		this_list->first == NULL;
+		this_list->last == NULL;
+	}
+	else if (this_list->first == deleted_node) {
 		next_node->prev = deleted_node->prev;
 		this_list->first = next_node;
 	}
