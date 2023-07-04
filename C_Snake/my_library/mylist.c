@@ -55,7 +55,7 @@ void* get_node_data(const list* this_list, const signed index) {
 }
 
 void append_node(list* this_list, const void* new_data) {
-	list_node* new_node = (list_node*)malloc(sizeof(new_node));
+	list_node* new_node = (list_node*)malloc(sizeof(list_node));
 	
 	new_node->data = new_data;
 	new_node->next = NULL;
