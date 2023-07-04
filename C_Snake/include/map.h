@@ -12,9 +12,9 @@ list* create_new_map(const unsigned size_y, const unsigned size_x);
 
 unsigned char get_map_pixel(list* map, const y, const x);
 
-unsigned* get_map_size_y(list* map);
+const unsigned* get_map_size_y(list* map);
 
-unsigned* get_map_size_x(list* map);
+const unsigned* get_map_size_x(list* map);
 
 void show_map(list* map);
 

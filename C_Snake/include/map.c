@@ -24,11 +24,11 @@ unsigned char get_map_pixel(const list* map, const y, const x) {
 	return get_node_data(get_node_data(map, y), x);
 }
 
-unsigned* get_map_size_y(list* map) {
+const unsigned* get_map_size_y(list* map) {
 	return &map->count;
 }
 
-unsigned* get_map_size_x(list* map) {
+const unsigned* get_map_size_x(list* map) {
 	return &((list*)get_node_data(map, 0))->count;
 }
 
