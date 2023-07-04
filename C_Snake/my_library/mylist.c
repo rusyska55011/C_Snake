@@ -4,7 +4,12 @@
 #include <limits.h>
 
 int convert_beyond_index(signed index, const unsigned node_count) {
-	const unsigned max_index = node_count - 1;
+	unsigned max_index;
+	if (index == 0) {
+		max_index = node_count;
+	} else {
+		max_index = node_count - 1;
+	}
 
 	if (index < 0) {
 		while (index < 0)
