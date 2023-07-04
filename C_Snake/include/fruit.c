@@ -25,3 +25,12 @@ mega_fruit* create_mega_fruit(const position_y, const position_x, const unsigned
 
 	return new_mega_fruit;
 }
+
+void destroy_fruit(fruit* this_fruit) {
+	free((fruit*)this_fruit);
+}
+
+void destroy_mega_fruit(mega_fruit* this_mega_fruit) {
+	free((mega_fruit*)this_mega_fruit);
+}
+
