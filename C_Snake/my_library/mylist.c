@@ -72,7 +72,6 @@ void append_node(list* this_list, const void* new_data) {
 	} else {
 		new_node->prev = this_list->last;
 		this_list->last->next = new_node;
-
 	}
 
 	this_list->count++;
@@ -93,11 +92,11 @@ void delete_node(list* this_list, const signed index) {
 		this_list->last == NULL;
 	}
 	else if (this_list->first == deleted_node) {
-		next_node->prev = deleted_node->prev;
+		next_node->prev = NULL;
 		this_list->first = next_node;
 	}
 	else if (this_list->last == deleted_node) {
-		prev_node->next = deleted_node->next;
+		prev_node->next = NULL;
 		this_list->last = prev_node;
 	}
 	else {
