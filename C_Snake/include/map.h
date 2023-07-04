@@ -23,3 +23,5 @@ void change_map_pixel(const list* map, const y, const x, const unsigned char new
 void set_default_map_pixel(const list* map, const y, const x);
 
 void cls_map(const list* map);
+
+void destroy_map(list* map);
