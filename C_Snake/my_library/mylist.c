@@ -102,7 +102,7 @@ void delete_node(list* this_list, const signed index) {
 
 	this_list->count--;
 
-	free(&deleted_node);
+	free(deleted_node);
 }
 
 void rewrite_node_data(const list* this_list, const signed index, const void* new_data) {
