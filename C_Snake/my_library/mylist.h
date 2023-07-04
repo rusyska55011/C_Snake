@@ -24,3 +24,5 @@ void append_node(list* this_list, const void* new_data);
 void delete_node(const list* this_list, const signed index);
 
 void rewrite_node_data(const list* this_list, const signed index, void* new_data);
+
+void destroy_list(list* this_list);

@@ -112,3 +112,11 @@ void delete_node(list* this_list, const signed index) {
 void rewrite_node_data(const list* this_list, const signed index, const void* new_data) {
 	get_node(this_list, index)->data = new_data;
 }
+
+void destroy_list(list* this_list) {
+	int size = this_list->count;
+	while (size--) 
+		delete_node(this_list, 0);
+	
+	free(this_list);
+}
