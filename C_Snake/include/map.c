@@ -60,3 +60,11 @@ void cls_map(const list* map) {
 		}
 	}
 }
+
+void destroy_map(list* map) {
+	unsigned y = *get_map_size_y(map);
+	while (y--)
+		destroy_list(get_node_data(map, y));
+
+	destroy_list(map);
+}
