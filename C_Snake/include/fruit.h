@@ -26,3 +26,23 @@ void destroy_mega_fruit(mega_fruit* this_mega_fruit);
 	mega_fruit*: destroy_mega_fruit,           \
 	default: destroy_fruit                     \
 )(obj)
+
+const* get_fruit_y(fruit* this_fruit);
+
+const* get_mega_fruit_y(mega_fruit* this_fruit);
+
+const* get_fruit_x(fruit* this_fruit);
+
+const* get_mega_fruit_x(mega_fruit* this_fruit);
+
+#define get_any_fruit_y(obj) _Generic((obj), \
+	fruit*: get_fruit_y,                     \
+	mega_fruit*: get_mega_fruit_y,           \
+	default: get_fruit_y                     \
+)(obj)
+
+#define get_any_fruit_x(obj) _Generic((obj), \
+	fruit*: get_fruit_x,                     \
+	mega_fruit*: get_mega_fruit_x,           \
+	default: get_fruit_x                     \
+)(obj)

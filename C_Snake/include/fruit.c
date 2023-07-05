@@ -34,3 +34,18 @@ void destroy_mega_fruit(mega_fruit* this_mega_fruit) {
 	free((mega_fruit*)this_mega_fruit);
 }
 
+const* get_fruit_y(fruit* this_fruit) {
+	return this_fruit->position_y;
+}
+
+const* get_mega_fruit_y(mega_fruit* this_fruit) {
+	return this_fruit->position_y;
+}
+
+const* get_fruit_x(fruit* this_fruit) {
+	return this_fruit->position_x;
+}
+
+const* get_mega_fruit_x(mega_fruit* this_fruit) {
+	return this_fruit->position_y;
+}
