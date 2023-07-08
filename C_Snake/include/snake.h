@@ -1,18 +1,20 @@
 #pragma once
 #include "../my_library/mylist.h"
 
-typedef struct snake {
+typedef struct snake_obj {
 	int head_position_y;
 	int head_position_x;
 	list* body;
-} snake;
+} snake_obj;
 
-void push_back_snake_element(list* this_snake, const int position_y, const int position_x);
+void push_back_snake_element(snake_obj* this_snake, const int position_y, const int position_x);
 
-void delete_back_snake_element(list* this_snake, const int index);
+void delete_snake_element(snake_obj* this_snake, const int index);
 
-int get_snake_len(list* this_snake);
+int get_snake_body_len(snake_obj* this_snake);
 
-int* get_element_yx(list* this_list, const int index);
+int* get_element_yx(snake_obj* this_snake, const int index);
 
-list* create_snake(const int position_y, const int position_x);
+snake_obj* create_snake(const int position_y, const int position_x);
+
+void destroy_snake(snake_obj* this_snake);
